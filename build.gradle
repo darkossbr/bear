@@ -1,0 +1,57 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.28-beta'
+}
+
+version = '1.0.0'
+group = 'com.starfish_studios.bear_mod'
+
+base {
+    archivesName = 'bear_mod'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = '21.1.180'
+
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('runs/client')
+        }
+        server {
+            server()
+            gameDirectory = project.file('runs/server')
+        }
+    }
+
+    mods {
+        bear_mod {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    maven {
+        name = "Geckolib Maven"
+        url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
+        content {
+            includeGroup "software.bernie.geckolib"
+        }
+    }
+	    maven {
+        name = "SBL Maven"
+        url "https://dl.cloudsmith.io/public/tslat/sbl/maven/"
+        content {
+            includeGroup "net.tslat.smartbrainlib"
+        }
+    }
+}
+
+dependencies {
+    implementation ("software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}") {transitive=false}
+
+    implementation ("net.tslat.smartbrainlib:SmartBrainLib-neoforge-${minecraft_version}:${smartbrainlib_version}") {transitive=false}
+}
+

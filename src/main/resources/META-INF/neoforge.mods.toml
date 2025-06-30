@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "${neo_loader_version_range}"
+license = "MIT"
+
+[[mods]]
+modId = "bear_mod"
+version = "1.0.0"
+displayName = "Bear Mod"
+description =""
+logoFile = ""
+credits = "Based on the Naturalist mod by Starfish Studios"
+authors = "alibabasama"
+displayURL = ""
+updateJSONURL = ""
+
+[[dependencies.bear_mod]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neo_version_range}"
+side = "BOTH"
+
+[[dependencies.bear_mod]]
+modId = "geckolib"
+type = "required"
+versionRange = "${geckolib_version_range}"
+side = "BOTH"
+
+
+[[dependencies.bear_mod]]
+modId = "smartbrainlib"
+type = "required"
+versionRange = "${smartbrainlib_version_range}"
+side = "BOTH"
